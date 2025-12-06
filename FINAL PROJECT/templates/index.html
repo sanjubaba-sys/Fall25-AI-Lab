@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emotion Detection</title>
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body class="bg-light">
+
+<nav class="navbar navbar-dark bg-primary shadow-sm">
+    <div class="container">
+        <span class="navbar-brand">Emotion Detection App</span>
+    </div>
+</nav>
+<nav class="navbar navbar-dark bg-primary shadow-sm">
+    <div class="container d-flex align-items-center">
+
+        <!-- Bigger, clean-looking logo -->
+        <img src="{{ url_for('static', filename='logo.png') }}" 
+             alt="Logo"
+             style="height:70px; width:auto; margin-right:15px; object-fit:contain;">
+
+        <span class="navbar-brand mb-0 h1 fs-3">Emotion Detection App</span>
+    </div>
+</nav>
+
+
+
+<div class="container mt-5">
+    <div class="card shadow-lg p-4 text-center rounded-4 upload-card">
+        <div class="text-center mt-4">
+    <img src="{{ url_for('static', filename='logo.png') }}" 
+         style="height:120px; width:auto; object-fit:contain;" 
+         alt="Logo">
+</div>
+
+
+        <h2 class="mb-3">Upload Your Image</h2>
+        <p class="text-muted">The AI model will detect the emotion from the face.</p>
+
+        <form action="/predict" method="POST" enctype="multipart/form-data">
+
+            <!-- Preview box -->
+            <img id="preview" class="img-preview rounded mb-3" src="https://via.placeholder.com/200?text=Preview" />
+
+            <input type="file" name="image" class="form-control form-control-lg mb-3" 
+                   accept="image/*" onchange="showPreview(event)" required>
+
+            <button class="btn btn-primary btn-lg w-100">Analyze Emotion</button>
+        </form>
+
+    </div>
+</div>
+
+<script>
+function showPreview(event){
+    const output = document.getElementById('preview');
+    output.src = URL.createObjectURL(event.target.files[0]);
+}
+</script>
+
+</body>
+</html>

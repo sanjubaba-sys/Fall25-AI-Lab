@@ -1,0 +1,29 @@
+body {
+    font-family: "Segoe UI", sans-serif;
+}
+
+.upload-card {
+    max-width: 500px;
+    margin: auto;
+}
+
+.img-preview {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border: 2px solid #ddd;
+}
+
+
+.img-result {
+    width: 250px;
+    height: 250px;
+    object-fit: cover;
+    border: 3px solid #0d6efd;
+}
+
+.emotion-text {
+    font-size: 28px;
+    font-weight: bold;
+    color: #0d6efd;
+}
